@@ -22,8 +22,3 @@ title(str);
 str = ['Dominio da Frequência: ' list(1).name];
 subplot(length(list),2,2);
 title(str);
-
-%%%%%%%%%%
-delta = (1-(-1))/((2^4)-1);       % delta = (Amax-Amin)/(2^b-1), b-> nº de bits, Amax,Amin->amplitude sinal original
-y4 = round(samples{7}/delta)*delta;  % ajustar amplitude
-sound(y4, 44100);
