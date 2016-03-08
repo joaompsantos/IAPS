@@ -1,6 +1,6 @@
 function [ Tax ] = compressionTax( Toriginal, Tcompressed)
 %COMPRESSIONTAX -> Return compression tax
-    Tax = (Tcompressed/Toriginal) * 100;
+    Tax = (Toriginal/Tcompressed) * 100;
     
 end
 
