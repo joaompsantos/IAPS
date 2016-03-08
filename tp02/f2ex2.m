@@ -20,23 +20,23 @@ fprintf('Energia Ruido (4 bits): %f\n',energia_r4);
 
 % RUIDO(BITS) %
 bits = [2 4 6 8 10];
-sinals = cell(1,length(bits));
-errors = cell(1,length(bits));
-snr = cell(1,length(bits));
+sinals = cell(1,5);
+errors = cell(1,5);
+snr = [0,0,0,0,0];
 for i=1:length(bits)
     sinals{i} = quantiaps(y,bits(i),1,-1);
-    errors{1} = sinals{i}-y;
+    errors{i} = sinals{i}-y;
     energia_r = sum((errors{i}).^2);
     energia_s = sum((sinals{i}).^2);
-    snr{i}=10*log10(energia_s/energia_r);
+    snr(i)=10*log10(energia_s/energia_r);
     fprintf('Energia Ruido (%d bits): %f\n',bits(i),energia_r);
-    fprintf('SNR (%d bits): %f\n',bits(i),snr{i});
+    fprintf('SNR (%d bits): %f\n',bits(i),snr(i));
 
 end;
 subplot(3,1,2);
 hold on;
 grid on;
-h = plot(2,snr{1},'.-',4,snr{2},'.-',6,snr{3},'.-',8,snr{4},'.-',10,snr{5},'.-');
+h = plot(2,snr(1),'.-',4,snr(2),'.-',6,snr(3),'.-',8,snr(4),'.-',10,snr(5),'.-');
 set(h,'Marker','square');
 plot(bits,6.02*bits);
 legend('SNR 2 bits','SNR 4 bits','SNR 6 bits','SNR 8 bits','SNR 10 bits','SNR=6.02b');
