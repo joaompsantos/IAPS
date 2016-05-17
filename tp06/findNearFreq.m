@@ -1,6 +1,6 @@
 function [ Fo ] = findNearFreq( Table, Fi, flag)
 %findNearFreq Find closest match with the given frequency
-min = 100;
+min = 10000000000;
 
 if (flag==1)
     for i = 1:length(Table)

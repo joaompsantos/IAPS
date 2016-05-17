@@ -9,7 +9,7 @@ function [ sequence ] = findDTone( Table, Fa, Fb)
    
     for k=1:length(F1)
         for i=1:length(Table)
-            if(Table(i).F1==F1(k) &Table(i).F2==F2(k))
+            if(Table(i).F1==F1(k) & Table(i).F2==F2(k))
                 sequence(k)=Table(i).S;
             end    
         end
